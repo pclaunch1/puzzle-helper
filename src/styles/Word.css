@@ -1,0 +1,8 @@
+.letter {
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 30px;
+}
