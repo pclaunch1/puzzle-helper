@@ -31,17 +31,6 @@ function Word(props) {
     }
   }
 
-  const handleKeyPress = (event) => {
-    if(event.code.includes("Key")){
-      const form = event.target.form;
-      const index = [...form].indexOf(event.target);
-      window.setTimeout(() => form.elements[index + 1].focus(), 0);
-    }
-    else{
-      event.preventDefault();
-    }
-  }
-
   const handleClick = (event) => {
     if(event.target.value !== ""){
       changeTextBackground(event.target)
@@ -53,7 +42,12 @@ function Word(props) {
   }
 
   const handleKeyDown = (event) => {
-    if(event.key === 'Backspace'){
+    if(event.code.includes("Key")){
+      const form = event.target.form;
+      const index = [...form].indexOf(event.target);
+      window.setTimeout(() => form.elements[index + 1].focus(), 0);
+    }
+    else if(event.key === 'Backspace'){
       const form = event.target.form;
       const index = [...form].indexOf(event.target);
       if(index > 0){
@@ -61,12 +55,15 @@ function Word(props) {
         window.setTimeout(() => form.elements[index - 1].focus(), 0);
       }
     }
+    else{
+      event.preventDefault();
+    }
   }
 
   const wordLength = props.wordLength;
 
   return (
-    Array(wordLength).fill(0).map((_, i) => <input className="letter" id={"letter-" + i.toString() + props.index.toString()} type="text" maxLength="1" onKeyPress={handleKeyPress} onClick={handleClick} onKeyDown={handleKeyDown} key={i} />)
+    Array(wordLength).fill(0).map((_, i) => <input className="letter" id={"letter-" + i.toString() + props.index.toString()} type="text" maxLength="1" onClick={handleClick} onKeyDown={handleKeyDown} key={i} />)
   );
 }
 
