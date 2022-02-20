@@ -82,11 +82,23 @@ class App extends React.Component {
         <div>Click each square to align the colors with your puzzle results</div>
         <div>This view should reflect exactly what your puzzle is showing</div>
         <br></br>
-        <form>
-          <WordList />
-          <input type="button" className="submitBtn" value="Submit" onClick={this.handleSubmit}/>
-          <input type="button" className="clearBtn" value="Clear" onClick={this.handleClear}/>
-        </form>
+        <div>
+          <form>
+            <WordList />
+            <input type="button" className="submitBtn" value="Submit" onClick={this.handleSubmit}/>
+            <input type="button" className="clearBtn" value="Clear" onClick={this.handleClear}/>
+          </form>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7428848051998895" crossOrigin="anonymous"></script>
+          <ins className="adsbygoogle"
+              style={{display:'block'}}
+              data-ad-client="ca-pub-7428848051998895"
+              data-ad-slot="7490583418"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
         <h1>Word Suggestions</h1>
         <ul className="candidateList"><CandidateList candidates={this.state.candidates} /></ul>
       </div>
